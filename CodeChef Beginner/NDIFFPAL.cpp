@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+string s = "abcdefghijklmnopqrstuvwxyz";
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    { 
+        int n;
+        cin>>n;
+        for(int i=0; i<n; i++)
+        {
+           cout<<s[(i%26)];
+        }
+        cout<<endl;
+    }
+	return 0;
+}
