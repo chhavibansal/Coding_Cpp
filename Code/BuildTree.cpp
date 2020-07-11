@@ -52,12 +52,52 @@ int height(node *root)
     return 1 + max(l, r);
 }
 
+void preOrderTraversal(node* root){
+    //base condition 
+    if(root == NULL) 
+    return;
+
+    // Root Left Right
+    cout << root->data<<" ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
+
+}
+
+void inorderTraversal(node*root){
+    if(root == NULL) return;
+
+    //left root right
+    inorderTraversal(root->left);
+    cout << root->data<<" ";
+    inorderTraversal(root->right);
+
+
+}
+
+void postOrderTraversal(node* root){
+    if(root == NULL) return;
+
+    // left right root
+    postOrderTraversal(root->left);
+    postOrderTraversal(root->right);
+
+    cout << root->data<<" ";
+
+}
+
 int main()
 {
     node *root = buildTree();
 
+    preOrderTraversal(root);
+    cout<<endl;
+    inorderTraversal(root);
+    cout <<endl;
+    postOrderTraversal(root);
+    cout<<endl;
 
- inorder(root);
- cout << endl;
-  cout << height(root);
+    // inorder(root);
+    // cout << endl;
+    // cout << height(root);
 }
