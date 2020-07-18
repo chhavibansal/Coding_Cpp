@@ -56,10 +56,32 @@ int diameter(node *root){
     return max({leftH+rightH , leftD , rightD});
 
 }
+void sumOfNodes(node *root, int &sum){
+
+    if(root == NULL)
+    return ;
+
+    sum+= root->data;
+
+    sumOfNodes(root->left, sum);
+    sumOfNodes(root->right , sum);
+
+}
+int countNodes(node *root){
+    if(root== NULL)
+    return 0;
+
+    return 1 + countNodes(root->left)+ countNodes(root->right);
+}
 
 int main()
 {
-    node *root = buildTree();
+      node *root = buildTree();
+  // 1 2 3 4 -1 -1 5 -1 -1 -1 6 -1 9 -1 11 -1 -1
+  int sum = 0 ;
+  sumOfNodes(root ,sum);
+  cout << countNodes(root)<<"\n";
+  cout << sum <<"\n";
     cout << diameter(root);
    
     // 1 2 3 4 -1 -1 5 -1 -1 -1 6 -1 9 -1 11 -1 -1
